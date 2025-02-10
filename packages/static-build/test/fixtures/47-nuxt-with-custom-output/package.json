@@ -9,6 +9,6 @@
   "keywords": [],
   "private": true,
   "dependencies": {
-    "nuxt": "2.15.2"
+    "nuxt": "^2.15.2"
   }
 }
