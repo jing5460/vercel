@@ -4,14 +4,14 @@
  * @param querystring - The querystring to parse, also known as the "search" string.
  */
 export function parseQueryString(
-  querystring?: string
+  querystring?: string | null
 ): Record<string, string[]> {
   const query: Record<string, string[]> = Object.create(null);
   if (!querystring || !querystring.startsWith('?') || querystring === '?') {
     return query;
   }
   const params = querystring.slice(1).split('&');
-  for (let param of params) {
+  for (const param of params) {
     let [key, value] = param.split('=');
     if (key !== undefined) {
       key = decodeURIComponent(key);
@@ -38,14 +38,14 @@ export function parseQueryString(
  */
 export function formatQueryString(
   query: Record<string, string[]> | undefined
-): string | undefined {
+): string | null {
   if (!query) {
-    return undefined;
+    return null;
   }
   let s = '';
   let prefix = '?';
-  for (let [key, values] of Object.entries(query)) {
-    for (let value of values) {
+  for (const [key, values] of Object.entries(query)) {
+    for (const value of values) {
       s += prefix;
       s += encodeURIComponent(key);
       if (value !== undefined) {
@@ -55,5 +55,5 @@ export function formatQueryString(
       prefix = '&';
     }
   }
-  return s || undefined;
+  return s || null;
 }
