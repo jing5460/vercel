@@ -1,5 +1,16 @@
 # vercel
 
+## 52.3.0
+
+### Minor Changes
+
+- f0c17c0: Add masked token value column to `vercel edge-config tokens` table output.
+- bc302e4: `vercel flags sdk-keys ls` now surfaces the server-masked `partialKeyValue` preview (e.g. `vf_server_abc********`) in a new column of the default table output, between `Label` and `Created`. The `--json` output also includes `partialKeyValue` on each row.
+
+### Patch Changes
+
+- 46a2646: Limit `vc link --scope` project lookup to the requested scope.
+
 ## 52.2.1
 
 ### Patch Changes
